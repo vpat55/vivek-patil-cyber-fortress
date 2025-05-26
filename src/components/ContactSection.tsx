@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Github, Linkedin, Twitter, Phone } from 'lucide-react';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -44,6 +44,14 @@ const ContactSection = () => {
             <div className="font-mono text-green-400 mb-4">SECURE_COMMUNICATION_CHANNELS</div>
             
             <div className="space-y-4">
+              <div className="flex items-center space-x-4 p-3 border border-green-400 hover:bg-green-400/10 transition-all duration-300 cursor-pointer">
+                <Phone className="text-green-400" size={20} />
+                <div>
+                  <div className="font-mono text-green-300 text-sm">SECURE_PHONE_LINE</div>
+                  <div className="font-mono text-green-500 text-xs">+91-XXXX-XXXX-XX</div>
+                </div>
+              </div>
+
               <div className="flex items-center space-x-4 p-3 border border-green-400 hover:bg-green-400/10 transition-all duration-300 cursor-pointer">
                 <Mail className="text-green-400" size={20} />
                 <div>

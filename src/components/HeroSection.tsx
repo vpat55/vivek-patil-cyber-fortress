@@ -1,7 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  onEnterSystem: () => void;
+}
+
+const HeroSection = ({ onEnterSystem }: HeroSectionProps) => {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
@@ -50,7 +53,10 @@ const HeroSection = () => {
         </div>
         
         <div className="mt-12 flex justify-center space-x-4">
-          <button className="px-6 py-3 border-2 border-green-400 text-green-400 font-mono hover:bg-green-400 hover:text-black transition-all duration-300 transform hover:scale-105">
+          <button 
+            onClick={onEnterSystem}
+            className="px-6 py-3 border-2 border-green-400 text-green-400 font-mono hover:bg-green-400 hover:text-black transition-all duration-300 transform hover:scale-105"
+          >
             ENTER SYSTEM
           </button>
           <button className="px-6 py-3 border-2 border-red-500 text-red-500 font-mono hover:bg-red-500 hover:text-black transition-all duration-300 transform hover:scale-105">
