@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, Twitter, Phone } from 'lucide-react';
+import { Mail, Github, Linkedin, Twitter, Phone, ExternalLink, Code, Target } from 'lucide-react';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -48,7 +48,7 @@ const ContactSection = () => {
                 <Phone className="text-green-400" size={20} />
                 <div>
                   <div className="font-mono text-green-300 text-sm">SECURE_PHONE_LINE</div>
-                  <div className="font-mono text-green-500 text-xs">+91-XXXX-XXXX-XX</div>
+                  <div className="font-mono text-green-500 text-xs">+91-9579064701</div>
                 </div>
               </div>
 
@@ -56,33 +56,47 @@ const ContactSection = () => {
                 <Mail className="text-green-400" size={20} />
                 <div>
                   <div className="font-mono text-green-300 text-sm">EMAIL_PROTOCOL</div>
-                  <div className="font-mono text-green-500 text-xs">vivek.patil@cybersec.dev</div>
+                  <div className="font-mono text-green-500 text-xs">vw0640800@gmail.com</div>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 p-3 border border-green-400 hover:bg-green-400/10 transition-all duration-300 cursor-pointer">
+              <a href="https://github.com/vpat55" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 p-3 border border-green-400 hover:bg-green-400/10 transition-all duration-300 cursor-pointer">
                 <Github className="text-green-400" size={20} />
                 <div>
                   <div className="font-mono text-green-300 text-sm">SOURCE_CODE_REPO</div>
-                  <div className="font-mono text-green-500 text-xs">github.com/vivekpatil</div>
+                  <div className="font-mono text-green-500 text-xs">github.com/vpat55</div>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-center space-x-4 p-3 border border-green-400 hover:bg-green-400/10 transition-all duration-300 cursor-pointer">
+              <a href="https://www.linkedin.com/in/vivek-patil-330a2532a" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 p-3 border border-green-400 hover:bg-green-400/10 transition-all duration-300 cursor-pointer">
                 <Linkedin className="text-green-400" size={20} />
                 <div>
                   <div className="font-mono text-green-300 text-sm">PROFESSIONAL_NETWORK</div>
-                  <div className="font-mono text-green-500 text-xs">linkedin.com/in/vivekpatil</div>
+                  <div className="font-mono text-green-500 text-xs">linkedin.com/in/vivek-patil-330a2532a</div>
                 </div>
-              </div>
+              </a>
+            </div>
+          </div>
 
-              <div className="flex items-center space-x-4 p-3 border border-green-400 hover:bg-green-400/10 transition-all duration-300 cursor-pointer">
-                <Twitter className="text-green-400" size={20} />
+          <div className="border-2 border-cyan-400 p-6 bg-black/70">
+            <div className="font-mono text-cyan-400 mb-4">CODING_PLATFORMS</div>
+            
+            <div className="space-y-4">
+              <a href="https://tryhackme.com/p/vpats5667" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 p-3 border border-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 cursor-pointer">
+                <Target className="text-cyan-400" size={20} />
                 <div>
-                  <div className="font-mono text-green-300 text-sm">SOCIAL_UPDATES</div>
-                  <div className="font-mono text-green-500 text-xs">@vivekpatil_sec</div>
+                  <div className="font-mono text-cyan-300 text-sm">TRYHACKME_PROFILE</div>
+                  <div className="font-mono text-cyan-500 text-xs">tryhackme.com/p/vpats5667</div>
                 </div>
-              </div>
+              </a>
+
+              <a href="https://leetcode.com/u/vw0640800" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 p-3 border border-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 cursor-pointer">
+                <Code className="text-cyan-400" size={20} />
+                <div>
+                  <div className="font-mono text-cyan-300 text-sm">LEETCODE_PROFILE</div>
+                  <div className="font-mono text-cyan-500 text-xs">leetcode.com/u/vw0640800</div>
+                </div>
+              </a>
             </div>
           </div>
 

@@ -24,7 +24,7 @@ const AboutSection = () => {
           <div className="border-2 border-green-400 p-4 bg-black/50 text-center">
             <div className="mb-4">
               <img 
-                src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=300&h=300&fit=crop&crop=face" 
+                src="/lovable-uploads/62d6a019-421d-470e-bfd3-635d07ebb821.png" 
                 alt="Vivek Patil - Cybersecurity Expert"
                 className="w-full h-64 object-cover border border-green-400 grayscale hover:grayscale-0 transition-all duration-300"
               />

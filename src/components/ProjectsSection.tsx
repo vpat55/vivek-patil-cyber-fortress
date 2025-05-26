@@ -5,32 +5,25 @@ import { ExternalLink, Github } from 'lucide-react';
 const ProjectsSection = () => {
   const projects = [
     {
-      title: 'VulnScanner Pro',
-      description: 'Advanced vulnerability scanner with custom exploit database',
-      tech: ['Python', 'Nmap', 'SQLite', 'Flask'],
+      title: 'Biometric Authentication System',
+      description: 'Advanced biometric security system with fingerprint and facial recognition',
+      tech: ['Python', 'OpenCV', 'TensorFlow', 'Flask'],
+      status: 'COMPLETED',
+      type: 'SECURITY_SYSTEM'
+    },
+    {
+      title: 'Threat Intelligence Platform',
+      description: 'Real-time threat detection and analysis platform for cybersecurity monitoring',
+      tech: ['Python', 'Machine Learning', 'API Integration', 'Dashboard'],
       status: 'ACTIVE',
-      type: 'SECURITY_TOOL'
+      type: 'THREAT_ANALYSIS'
     },
     {
-      title: 'Network Fortress',
-      description: 'Real-time network intrusion detection system',
-      tech: ['C++', 'Wireshark', 'ML', 'Docker'],
+      title: 'Smart Resume Analyzer',
+      description: 'AI-powered resume analysis and job matching system with NLP capabilities',
+      tech: ['Python', 'NLP', 'Machine Learning', 'Flask'],
       status: 'DEPLOYED',
-      type: 'IDS_SYSTEM'
-    },
-    {
-      title: 'CryptoGuard',
-      description: 'Encryption tool for secure file transmission',
-      tech: ['JavaScript', 'AES', 'RSA', 'Node.js'],
-      status: 'BETA',
-      type: 'CRYPTO_TOOL'
-    },
-    {
-      title: 'PenTest Framework',
-      description: 'Automated penetration testing suite',
-      tech: ['Python', 'Metasploit', 'Burp Suite', 'API'],
-      status: 'DEVELOPMENT',
-      type: 'FRAMEWORK'
+      type: 'AI_TOOL'
     }
   ];
 
@@ -51,7 +44,7 @@ const ProjectsSection = () => {
                 <div className={`px-2 py-1 text-xs font-mono border ${
                   project.status === 'ACTIVE' ? 'border-green-400 text-green-400' :
                   project.status === 'DEPLOYED' ? 'border-cyan-400 text-cyan-400' :
-                  project.status === 'BETA' ? 'border-yellow-400 text-yellow-400' :
+                  project.status === 'COMPLETED' ? 'border-blue-400 text-blue-400' :
                   'border-red-400 text-red-400'
                 }`}>
                   {project.status}
@@ -88,7 +81,7 @@ const ProjectsSection = () => {
               <div className="mt-4 pt-4 border-t border-green-400/30">
                 <div className="font-mono text-xs text-green-500">
                   <span className="text-cyan-400">vivek@projects:</span>
-                  <span className="text-green-400">~$ ./deploy_{project.title.toLowerCase().replace(' ', '_')}.sh</span>
+                  <span className="text-green-400">~$ ./deploy_{project.title.toLowerCase().replace(/\s+/g, '_')}.sh</span>
                   <div className="text-green-300 mt-1">Deployment status: {project.status}</div>
                 </div>
               </div>
