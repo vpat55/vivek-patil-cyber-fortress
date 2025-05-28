@@ -8,6 +8,8 @@ import ContactSection from '../components/ContactSection';
 import EducationSection from '../components/EducationSection';
 import CertificationsSection from '../components/CertificationsSection';
 import MatrixBackground from '../components/MatrixBackground';
+import AdminTrigger from '../components/AdminTrigger';
+import { AdminProvider } from '../contexts/AdminContext';
 
 const Index = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -17,22 +19,25 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-green-400 relative overflow-hidden">
-      <MatrixBackground />
-      <div className="relative z-10">
-        <HeroSection onEnterSystem={handleEnterSystem} />
-        {isAuthenticated && (
-          <>
-            <AboutSection />
-            <SkillsSection />
-            <EducationSection />
-            <CertificationsSection />
-            <ProjectsSection />
-            <ContactSection />
-          </>
-        )}
+    <AdminProvider>
+      <div className="min-h-screen bg-black text-green-400 relative overflow-hidden">
+        <MatrixBackground />
+        <AdminTrigger />
+        <div className="relative z-10">
+          <HeroSection onEnterSystem={handleEnterSystem} />
+          {isAuthenticated && (
+            <>
+              <AboutSection />
+              <SkillsSection />
+              <EducationSection />
+              <CertificationsSection />
+              <ProjectsSection />
+              <ContactSection />
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </AdminProvider>
   );
 };
 
