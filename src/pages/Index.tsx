@@ -9,6 +9,7 @@ import EducationSection from '../components/EducationSection';
 import CertificationsSection from '../components/CertificationsSection';
 import MatrixBackground from '../components/MatrixBackground';
 import AdminTrigger from '../components/AdminTrigger';
+import SectionNavigation from '../components/SectionNavigation';
 import { AdminProvider } from '../contexts/AdminContext';
 
 const Index = () => {
@@ -23,6 +24,7 @@ const Index = () => {
       <div className="min-h-screen bg-black text-green-400 relative overflow-hidden">
         <MatrixBackground />
         <AdminTrigger />
+        {isAuthenticated && <SectionNavigation />}
         <div className="relative z-10">
           <HeroSection onEnterSystem={handleEnterSystem} />
           {isAuthenticated && (

@@ -1,89 +1,90 @@
 
 import React from 'react';
+import { Code, Shield, Database, Terminal, Globe, Cpu } from 'lucide-react';
 
 const SkillsSection = () => {
-  const cybersecuritySkills = [
-    { name: 'Penetration Testing', level: 95, color: 'border-green-400' },
-    { name: 'Network Security', level: 90, color: 'border-cyan-400' },
-    { name: 'Ethical Hacking', level: 92, color: 'border-red-400' },
-    { name: 'Vulnerability Assessment', level: 88, color: 'border-yellow-400' },
-    { name: 'Incident Response', level: 85, color: 'border-purple-400' },
-    { name: 'Malware Analysis', level: 80, color: 'border-orange-400' }
+  const programmingLanguages = [
+    { name: 'Python', level: 90, color: 'bg-yellow-500' },
+    { name: 'Java', level: 85, color: 'bg-orange-500' },
+    { name: 'C', level: 80, color: 'bg-blue-500' },
+    { name: 'C++', level: 82, color: 'bg-blue-600' },
+    { name: 'JavaScript', level: 88, color: 'bg-yellow-400' },
+    { name: 'HTML', level: 95, color: 'bg-orange-600' },
+    { name: 'CSS', level: 90, color: 'bg-blue-400' },
   ];
 
-  const programmingSkills = [
-    { name: 'Python', level: 90, color: 'border-yellow-400' },
-    { name: 'C/C++', level: 85, color: 'border-blue-400' },
-    { name: 'Java', level: 80, color: 'border-orange-400' },
-    { name: 'JavaScript', level: 85, color: 'border-yellow-300' },
-    { name: 'HTML/CSS', level: 88, color: 'border-red-400' },
-    { name: 'PowerShell', level: 82, color: 'border-blue-500' }
+  const securityTools = [
+    { name: 'Kali Linux', level: 92, color: 'bg-green-500' },
+    { name: 'PowerShell', level: 85, color: 'bg-blue-700' },
+    { name: 'Penetration Testing', level: 88, color: 'bg-red-500' },
+    { name: 'Network Security', level: 90, color: 'bg-purple-500' },
+    { name: 'Ethical Hacking', level: 87, color: 'bg-cyan-500' },
   ];
-
-  const tools = [
-    { name: 'Kali Linux', level: 95, color: 'border-green-500' },
-    { name: 'Metasploit', level: 90, color: 'border-red-500' },
-    { name: 'Wireshark', level: 88, color: 'border-blue-400' },
-    { name: 'Burp Suite', level: 85, color: 'border-orange-400' },
-    { name: 'Nmap', level: 92, color: 'border-green-400' },
-    { name: 'OWASP ZAP', level: 80, color: 'border-purple-400' }
-  ];
-
-  const SkillGrid = ({ skills, title }: { skills: typeof cybersecuritySkills, title: string }) => (
-    <div className="mb-12">
-      <h3 className="text-2xl font-mono text-green-400 mb-6 text-center">
-        <span className="border-l-2 border-green-400 pl-2">{title}</span>
-      </h3>
-      <div className="grid md:grid-cols-2 gap-6">
-        {skills.map((skill, index) => (
-          <div key={index} className="border border-green-400 p-4 bg-black/50 hover:bg-green-400/5 transition-all duration-300">
-            <div className="flex justify-between items-center mb-3">
-              <span className="font-mono text-green-300 text-sm">{skill.name.toUpperCase()}</span>
-              <span className="font-mono text-green-400 text-xs">{skill.level}%</span>
-            </div>
-            
-            <div className="relative">
-              <div className="w-full bg-gray-800 h-2 border border-green-400">
-                <div 
-                  className={`h-full bg-gradient-to-r from-green-400 to-cyan-400 transition-all duration-1000 ${skill.color}`}
-                  style={{ width: `${skill.level}%` }}
-                />
-              </div>
-              <div className="absolute top-0 left-0 w-full h-full bg-green-400/20 animate-pulse opacity-50" />
-            </div>
-
-            <div className="mt-2 font-mono text-xs text-green-500">
-              <span className="text-cyan-400">root@skills:</span>
-              <span className="text-green-400">~$ assess --skill {skill.name.toLowerCase().replace(' ', '_')}</span>
-              <div className="text-green-300 mt-1">PROFICIENCY_LEVEL: {skill.level >= 90 ? 'EXPERT' : skill.level >= 80 ? 'ADVANCED' : 'INTERMEDIATE'}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
 
   return (
-    <section className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
+    <section id="skills" className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
       <div className="mb-12">
         <h2 className="text-4xl font-mono text-green-400 mb-8 text-center">
-          <span className="border-l-4 border-green-400 pl-4">SKILLS_MATRIX.db</span>
+          <span className="border-l-4 border-green-400 pl-4">SKILL_MATRIX.db</span>
         </h2>
       </div>
 
-      <SkillGrid skills={cybersecuritySkills} title="CYBERSECURITY_EXPERTISE" />
-      <SkillGrid skills={programmingSkills} title="PROGRAMMING_LANGUAGES" />
-      <SkillGrid skills={tools} title="SECURITY_TOOLS" />
+      <div className="grid md:grid-cols-2 gap-12">
+        <div id="programming" className="border-2 border-cyan-400 bg-black/70 p-6">
+          <div className="flex items-center space-x-3 mb-6">
+            <Code className="text-cyan-400" size={24} />
+            <h3 className="text-cyan-300 font-mono text-xl">PROGRAMMING_LANGUAGES</h3>
+          </div>
+          
+          <div className="space-y-4">
+            {programmingLanguages.map((lang) => (
+              <div key={lang.name}>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-green-300 font-mono text-sm">{lang.name}</span>
+                  <span className="text-green-400 font-mono text-xs">{lang.level}%</span>
+                </div>
+                <div className="w-full bg-gray-800 rounded-full h-2">
+                  <div 
+                    className={`h-2 rounded-full ${lang.color} transition-all duration-1000 ease-out`}
+                    style={{ width: `${lang.level}%` }}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-      <div className="mt-12 border-2 border-green-400 p-6 bg-black/70">
-        <div className="font-mono text-green-400 mb-4">CERTIFICATION_STATUS.log</div>
-        <div className="grid md:grid-cols-3 gap-4 font-mono text-xs">
-          <div className="text-green-300">✓ CEH - Certified Ethical Hacker</div>
-          <div className="text-green-300">✓ CISSP - Security Professional</div>
-          <div className="text-green-300">✓ OSCP - Offensive Security</div>
-          <div className="text-cyan-400">◦ CISM - In Progress</div>
-          <div className="text-cyan-400">◦ SANS GPEN - Planned</div>
-          <div className="text-cyan-400">◦ Bug Bounty Hunter</div>
+        <div id="tools" className="border-2 border-red-400 bg-black/70 p-6">
+          <div className="flex items-center space-x-3 mb-6">
+            <Shield className="text-red-400" size={24} />
+            <h3 className="text-red-300 font-mono text-xl">SECURITY_TOOLS</h3>
+          </div>
+          
+          <div className="space-y-4">
+            {securityTools.map((tool) => (
+              <div key={tool.name}>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-green-300 font-mono text-sm">{tool.name}</span>
+                  <span className="text-green-400 font-mono text-xs">{tool.level}%</span>
+                </div>
+                <div className="w-full bg-gray-800 rounded-full h-2">
+                  <div 
+                    className={`h-2 rounded-full ${tool.color} transition-all duration-1000 ease-out`}
+                    style={{ width: `${tool.level}%` }}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-12 border border-green-500 p-6 bg-green-500/10">
+        <div className="font-mono text-green-400">
+          <div className="text-lg mb-2">🔧 SYSTEM STATUS: OPERATIONAL</div>
+          <div className="text-sm text-green-300">
+            All security protocols active. Continuous learning and skill enhancement in progress.
+          </div>
         </div>
       </div>
     </section>

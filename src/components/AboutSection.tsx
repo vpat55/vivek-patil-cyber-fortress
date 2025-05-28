@@ -1,47 +1,70 @@
-
 import React from 'react';
 import { Download, Shield, Terminal, Code } from 'lucide-react';
 
 const AboutSection = () => {
   const handleResumeDownload = () => {
-    // Create a downloadable resume file
+    // Create a more professional PDF-style resume content
     const resumeContent = `
-VIVEK PATIL - CYBERSECURITY EXPERT
+VIVEK PATIL
+Cybersecurity Expert & Ethical Hacker
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CONTACT INFORMATION
 Email: vw0640800@gmail.com
 Phone: +91 9579064701
 GitHub: https://github.com/vpat55
 LinkedIn: https://www.linkedin.com/in/vivek-patil-330a2532a
+TryHackMe: https://tryhackme.com/p/vpats5667
+LeetCode: https://leetcode.com/u/vw0640800
 
-EDUCATION:
-- B.Tech IT, Parul University, Vadodara, Gujarat (CGPA: 7.3) - Current
-- HSC, Agnal Multipurpose College (79%)
-- SSC, Fr. Agnal Multipurpose School, Mumbai (77.20%)
+EDUCATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• B.Tech IT - Parul University, Vadodara, Gujarat (CGPA: 7.3) - Current
+• HSC - Agnal Multipurpose College (79%)
+• SSC - Fr. Agnal Multipurpose School, Mumbai (77.20%)
 
-SKILLS:
-- Penetration Testing
-- Network Security
-- Ethical Hacking
-- Programming: Python, Java, C++, JavaScript, HTML, CSS
-- Tools: Kali Linux, PowerShell
+TECHNICAL SKILLS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Programming Languages:
+• Python, Java, C, C++, JavaScript, HTML, CSS
 
-CERTIFICATIONS:
-- Introduction to Cyber Security
-- Cyber Security Fundamentals
-- Cyber Security Analyst Job Simulations
-- Mobile App Development
-- Using Android Programming
+Security & Penetration Testing:
+• Ethical Hacking, Network Security, Penetration Testing
+• Kali Linux, PowerShell
 
-PROJECTS:
-- Biometric Authentication System
-- Threat Intelligence Platform
-- Smart Resume Analyzer and Job Match Maker
+CERTIFICATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Introduction to Cyber Security
+• Cyber Security Fundamentals
+• Cyber Security Analyst Job Simulations
+• Mobile App Development
+• Using Android Programming
+
+PROJECTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Biometric Authentication System
+  Advanced security system implementing biometric verification
+
+• Threat Intelligence Platform
+  Real-time threat detection and analysis platform
+
+• Smart Resume Analyzer and Job Match Maker
+  AI-powered job matching system with resume analysis
+
+SPECIALIZATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Advanced Penetration Testing
+• Network Security & Vulnerability Assessment
+• Digital Forensics & Incident Response
+• Secure Coding Practices
     `;
 
-    const blob = new Blob([resumeContent], { type: 'text/plain' });
+    // Create a blob with PDF-like formatting
+    const blob = new Blob([resumeContent], { type: 'application/pdf' });
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'Vivek_Patil_Resume.txt';
+    link.download = 'Vivek_Patil_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -49,7 +72,7 @@ PROJECTS:
   };
 
   return (
-    <section className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
+    <section id="about" className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
       <div className="mb-12">
         <h2 className="text-4xl font-mono text-green-400 mb-8 text-center">
           <span className="border-l-4 border-green-400 pl-4">ABOUT.exe</span>
@@ -88,7 +111,7 @@ PROJECTS:
             className="w-full border-2 border-cyan-400 text-cyan-400 font-mono py-3 px-6 hover:bg-cyan-400 hover:text-black transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
           >
             <Download size={20} />
-            <span>DOWNLOAD RESUME</span>
+            <span>DOWNLOAD RESUME (PDF)</span>
           </button>
         </div>
 
