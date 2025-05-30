@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Mail, Github, Linkedin, Twitter, Phone, ExternalLink, Code, Target, Download } from 'lucide-react';
 
@@ -38,10 +37,10 @@ const ContactSection = () => {
   };
 
   const downloadResume = () => {
-    // Create a proper PDF download
+    // Download the actual resume image
     const link = document.createElement('a');
-    link.href = '/public/lovable-uploads/62d6a019-421d-470e-bfd3-635d07ebb821.png';
-    link.download = 'Vivek_Patil_Resume.pdf';
+    link.href = '/lovable-uploads/bc6b12ce-fb3d-4d88-95b8-9a15176bb0f5.png';
+    link.download = 'Vivek_Patil_Resume.png';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -86,7 +85,7 @@ const ContactSection = () => {
               >
                 <Download className="text-cyan-400" size={20} />
                 <div>
-                  <div className="font-mono text-cyan-300 text-sm">DOWNLOAD_RESUME.pdf</div>
+                  <div className="font-mono text-cyan-300 text-sm">DOWNLOAD_RESUME.png</div>
                   <div className="font-mono text-cyan-500 text-xs">Click to download CV</div>
                 </div>
               </button>

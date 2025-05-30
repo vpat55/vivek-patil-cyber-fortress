@@ -1,74 +1,16 @@
+
 import React from 'react';
 import { Download, Shield, Terminal, Code } from 'lucide-react';
 
 const AboutSection = () => {
   const handleResumeDownload = () => {
-    // Create a more professional PDF-style resume content
-    const resumeContent = `
-VIVEK PATIL
-Cybersecurity Expert & Ethical Hacker
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-CONTACT INFORMATION
-Email: vw0640800@gmail.com
-Phone: +91 9579064701
-GitHub: https://github.com/vpat55
-LinkedIn: https://www.linkedin.com/in/vivek-patil-330a2532a
-TryHackMe: https://tryhackme.com/p/vpats5667
-LeetCode: https://leetcode.com/u/vw0640800
-
-EDUCATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• B.Tech IT - Parul University, Vadodara, Gujarat (CGPA: 7.3) - Current
-• HSC - Agnal Multipurpose College (79%)
-• SSC - Fr. Agnal Multipurpose School, Mumbai (77.20%)
-
-TECHNICAL SKILLS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Programming Languages:
-• Python, Java, C, C++, JavaScript, HTML, CSS
-
-Security & Penetration Testing:
-• Ethical Hacking, Network Security, Penetration Testing
-• Kali Linux, PowerShell
-
-CERTIFICATIONS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Introduction to Cyber Security
-• Cyber Security Fundamentals
-• Cyber Security Analyst Job Simulations
-• Mobile App Development
-• Using Android Programming
-
-PROJECTS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Biometric Authentication System
-  Advanced security system implementing biometric verification
-
-• Threat Intelligence Platform
-  Real-time threat detection and analysis platform
-
-• Smart Resume Analyzer and Job Match Maker
-  AI-powered job matching system with resume analysis
-
-SPECIALIZATIONS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Advanced Penetration Testing
-• Network Security & Vulnerability Assessment
-• Digital Forensics & Incident Response
-• Secure Coding Practices
-    `;
-
-    // Create a blob with PDF-like formatting
-    const blob = new Blob([resumeContent], { type: 'application/pdf' });
-    const url = window.URL.createObjectURL(blob);
+    // Create a link to download the actual resume image
     const link = document.createElement('a');
-    link.href = url;
-    link.download = 'Vivek_Patil_Resume.pdf';
+    link.href = '/lovable-uploads/bc6b12ce-fb3d-4d88-95b8-9a15176bb0f5.png';
+    link.download = 'Vivek_Patil_Resume.png';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    window.URL.revokeObjectURL(url);
   };
 
   return (
@@ -111,21 +53,23 @@ SPECIALIZATIONS
             className="w-full border-2 border-cyan-400 text-cyan-400 font-mono py-3 px-6 hover:bg-cyan-400 hover:text-black transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
           >
             <Download size={20} />
-            <span>DOWNLOAD RESUME (PDF)</span>
+            <span>DOWNLOAD RESUME (PNG)</span>
           </button>
         </div>
 
         <div className="flex justify-center">
           <div className="border-2 border-green-400 bg-black/70 p-4 hover:bg-green-400/5 transition-all duration-300 transform hover:scale-105">
             <img 
-              src="/lovable-uploads/62d6a019-421d-470e-bfd3-635d07ebb821.png" 
-              alt="Vivek Patil - Cybersecurity Expert" 
-              className="w-64 h-64 object-cover rounded border-2 border-green-400"
+              src="/lovable-uploads/bc6b12ce-fb3d-4d88-95b8-9a15176bb0f5.png" 
+              alt="Vivek Patil - Complete Resume" 
+              className="w-64 h-auto object-contain rounded border-2 border-green-400 cursor-pointer"
+              onClick={handleResumeDownload}
+              title="Click to download resume"
             />
             <div className="mt-4 text-center">
               <div className="font-mono text-green-400 text-sm">
-                <div>vivek@security:~$ whoami</div>
-                <div className="text-green-300 mt-1">Cybersecurity Expert</div>
+                <div>vivek@security:~$ cat resume.png</div>
+                <div className="text-green-300 mt-1">Click image to download</div>
               </div>
             </div>
           </div>
