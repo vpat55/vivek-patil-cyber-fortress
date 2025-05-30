@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, Twitter, Phone, ExternalLink, Code, Target } from 'lucide-react';
+import { Mail, Github, Linkedin, Twitter, Phone, ExternalLink, Code, Target, Download } from 'lucide-react';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -22,16 +22,33 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
+    // Create email content
+    const subject = encodeURIComponent(`Message from ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+    const mailtoLink = `mailto:vw0640800@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
     setTimeout(() => {
       setIsSubmitting(false);
       setFormData({ name: '', email: '', message: '' });
-      console.log('Message sent successfully!');
-    }, 2000);
+      console.log('Email client opened successfully!');
+    }, 1000);
+  };
+
+  const downloadResume = () => {
+    // Create a proper PDF download
+    const link = document.createElement('a');
+    link.href = '/public/lovable-uploads/62d6a019-421d-470e-bfd3-635d07ebb821.png';
+    link.download = 'Vivek_Patil_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
-    <section className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
+    <section id="contact" className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
       <div className="mb-12">
         <h2 className="text-4xl font-mono text-green-400 mb-8 text-center">
           <span className="border-l-4 border-green-400 pl-4">CONTACT_PROTOCOL.init</span>
@@ -52,13 +69,27 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 p-3 border border-green-400 hover:bg-green-400/10 transition-all duration-300 cursor-pointer">
+              <div 
+                className="flex items-center space-x-4 p-3 border border-green-400 hover:bg-green-400/10 transition-all duration-300 cursor-pointer"
+                onClick={() => window.location.href = 'mailto:vw0640800@gmail.com'}
+              >
                 <Mail className="text-green-400" size={20} />
                 <div>
                   <div className="font-mono text-green-300 text-sm">EMAIL_PROTOCOL</div>
                   <div className="font-mono text-green-500 text-xs">vw0640800@gmail.com</div>
                 </div>
               </div>
+
+              <button
+                onClick={downloadResume}
+                className="flex items-center space-x-4 p-3 border border-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 cursor-pointer w-full text-left"
+              >
+                <Download className="text-cyan-400" size={20} />
+                <div>
+                  <div className="font-mono text-cyan-300 text-sm">DOWNLOAD_RESUME.pdf</div>
+                  <div className="font-mono text-cyan-500 text-xs">Click to download CV</div>
+                </div>
+              </button>
 
               <a href="https://github.com/vpat55" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 p-3 border border-green-400 hover:bg-green-400/10 transition-all duration-300 cursor-pointer">
                 <Github className="text-green-400" size={20} />
@@ -114,7 +145,7 @@ const ContactSection = () => {
         <div className="border-2 border-green-400 bg-black/70">
           <div className="border-b border-green-400 p-4 bg-green-400/10">
             <div className="font-mono text-green-400">SECURE_MESSAGE_TERMINAL</div>
-            <div className="font-mono text-green-300 text-xs">Establishing encrypted connection...</div>
+            <div className="font-mono text-green-300 text-xs">Direct email integration - Opens your email client</div>
           </div>
 
           <form onSubmit={handleSubmit} className="p-6 space-y-4">
@@ -162,14 +193,14 @@ const ContactSection = () => {
               disabled={isSubmitting}
               className="w-full py-3 border-2 border-green-400 text-green-400 font-mono hover:bg-green-400 hover:text-black transition-all duration-300 disabled:opacity-50"
             >
-              {isSubmitting ? 'TRANSMITTING...' : 'SEND_MESSAGE'}
+              {isSubmitting ? 'OPENING EMAIL CLIENT...' : 'SEND_VIA_EMAIL'}
             </button>
 
             <div className="pt-4 border-t border-green-400/30">
               <div className="font-mono text-xs text-green-500">
                 <span className="text-cyan-400">root@contact:</span>
-                <span className="text-green-400">~$ encrypt --message --send</span>
-                <div className="text-green-300 mt-1">Connection status: SECURE | Encryption: AES-256</div>
+                <span className="text-green-400">~$ mailto --secure --direct</span>
+                <div className="text-green-300 mt-1">Connection: EMAIL_CLIENT | Protocol: MAILTO</div>
               </div>
             </div>
           </form>
