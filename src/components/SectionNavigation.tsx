@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Shield, Database, Code, Lock, GraduationCap, Award, Archive, Phone } from 'lucide-react';
+import { Shield, Database, GraduationCap, Award, Archive, Phone } from 'lucide-react';
 
 const SectionNavigation = () => {
   const scrollToSection = (sectionId: string) => {
@@ -13,11 +13,9 @@ const SectionNavigation = () => {
   const navItems = [
     { id: 'about', label: 'about.exe', icon: Shield },
     { id: 'skills', label: 'skill_matrix.db', icon: Database },
-    { id: 'programming', label: 'programming_languages', icon: Code },
-    { id: 'tools', label: 'security_tools', icon: Lock },
-    { id: 'education', label: 'education_records.db', icon: GraduationCap },
-    { id: 'certifications', label: 'certifications.vault', icon: Award },
-    { id: 'projects', label: 'projects.archive', icon: Archive },
+    { id: 'education', label: 'EDUCATION_RECORDS.db', icon: GraduationCap },
+    { id: 'certifications', label: 'CERTIFICATIONS.vault', icon: Award },
+    { id: 'projects', label: 'PROJECTS.archive', icon: Archive },
     { id: 'contact', label: 'contact_protocol.init', icon: Phone },
   ];
 
