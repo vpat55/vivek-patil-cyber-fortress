@@ -25,7 +25,7 @@ const Index = () => {
         <MatrixBackground />
         <AdminTrigger />
         {isAuthenticated && <SectionNavigation />}
-        <div className="relative z-10">
+        <div className={`relative z-10 ${isAuthenticated ? 'pt-20' : ''}`}>
           <HeroSection onEnterSystem={handleEnterSystem} />
           {isAuthenticated && (
             <>
