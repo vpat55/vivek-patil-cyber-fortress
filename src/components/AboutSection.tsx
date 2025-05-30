@@ -60,16 +60,16 @@ const AboutSection = () => {
         <div className="flex justify-center">
           <div className="border-2 border-green-400 bg-black/70 p-4 hover:bg-green-400/5 transition-all duration-300 transform hover:scale-105">
             <img 
-              src="/lovable-uploads/bc6b12ce-fb3d-4d88-95b8-9a15176bb0f5.png" 
-              alt="Vivek Patil - Complete Resume" 
+              src="/lovable-uploads/62d6a019-421d-470e-bfd3-635d07ebb821.png" 
+              alt="Vivek Patil - Profile Image" 
               className="w-64 h-auto object-contain rounded border-2 border-green-400 cursor-pointer"
               onClick={handleResumeDownload}
               title="Click to download resume"
             />
             <div className="mt-4 text-center">
               <div className="font-mono text-green-400 text-sm">
-                <div>vivek@security:~$ cat resume.png</div>
-                <div className="text-green-300 mt-1">Click image to download</div>
+                <div>vivek@security:~$ view_profile.img</div>
+                <div className="text-green-300 mt-1">Click image to download resume</div>
               </div>
             </div>
           </div>
