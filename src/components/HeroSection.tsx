@@ -1,14 +1,12 @@
+
 import React, { useState, useEffect } from 'react';
 
-interface HeroSectionProps {
-  onEnterSystem: () => void;
-}
-
-const HeroSection = ({ onEnterSystem }: HeroSectionProps) => {
+const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
+  const [showSubtitle, setShowSubtitle] = useState(false);
 
   const texts = [
     'Cybersecurity Expert',
@@ -37,6 +35,14 @@ const HeroSection = ({ onEnterSystem }: HeroSectionProps) => {
     return () => clearTimeout(timeout);
   }, [charIndex, isDeleting, textIndex, texts]);
 
+  // Show subtitle after a delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSubtitle(true);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="min-h-screen flex items-center justify-center relative">
       <div className="text-center z-20">
@@ -44,24 +50,17 @@ const HeroSection = ({ onEnterSystem }: HeroSectionProps) => {
           <h1 className="text-6xl md:text-8xl font-bold mb-4 font-mono text-green-400 glitch" data-text="VIVEK PATIL">
             VIVEK PATIL
           </h1>
+          
+          <div className={`subtitle text-2xl md:text-3xl font-mono text-green-300 mb-6 transform transition-all duration-800 ${showSubtitle ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+            Mobile Developer
+          </div>
+          
           <div className="text-2xl md:text-4xl font-mono text-green-300 h-12">
             <span className="border-r-2 border-green-400 animate-pulse">
               {displayText}
             </span>
             <span className="animate-ping text-green-400">|</span>
           </div>
-        </div>
-        
-        <div className="mt-12 flex justify-center space-x-4">
-          <button 
-            onClick={onEnterSystem}
-            className="px-6 py-3 border-2 border-green-400 text-green-400 font-mono hover:bg-green-400 hover:text-black transition-all duration-300 transform hover:scale-105"
-          >
-            ENTER SYSTEM
-          </button>
-          <button className="px-6 py-3 border-2 border-red-500 text-red-500 font-mono hover:bg-red-500 hover:text-black transition-all duration-300 transform hover:scale-105">
-            ACCESS DENIED
-          </button>
         </div>
       </div>
 

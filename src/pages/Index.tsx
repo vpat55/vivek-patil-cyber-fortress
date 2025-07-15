@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
 import SkillsSection from '../components/SkillsSection';
@@ -13,30 +13,20 @@ import SectionNavigation from '../components/SectionNavigation';
 import { AdminProvider } from '../contexts/AdminContext';
 
 const Index = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  const handleEnterSystem = () => {
-    setIsAuthenticated(true);
-  };
-
   return (
     <AdminProvider>
       <div className="min-h-screen bg-black text-green-400 relative overflow-hidden">
         <MatrixBackground />
         <AdminTrigger />
-        {isAuthenticated && <SectionNavigation />}
-        <div className={`relative z-10 ${isAuthenticated ? 'pt-20' : ''}`}>
-          <HeroSection onEnterSystem={handleEnterSystem} />
-          {isAuthenticated && (
-            <>
-              <AboutSection />
-              <SkillsSection />
-              <EducationSection />
-              <CertificationsSection />
-              <ProjectsSection />
-              <ContactSection />
-            </>
-          )}
+        <SectionNavigation />
+        <div className="relative z-10 pt-20">
+          <HeroSection />
+          <AboutSection />
+          <SkillsSection />
+          <EducationSection />
+          <CertificationsSection />
+          <ProjectsSection />
+          <ContactSection />
         </div>
       </div>
     </AdminProvider>
